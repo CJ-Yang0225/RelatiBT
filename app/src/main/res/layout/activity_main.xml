@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LED1"
+                android:id="@+id/checkboxLED1"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="70dp"
+                android:checked="false"
+                android:layout_alignLeft="@+id/bluetoothStatus"
+                android:layout_alignStart="@+id/bluetoothStatus"
+                android:scaleX="1.7"
+                android:scaleY="1.7"
+                android:textStyle="bold"
+                android:layout_gravity="left" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LED2"
+                android:id="@+id/checkboxLED2"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="90dp"
+                android:checked="false"
+                android:layout_alignStart="@+id/bluetoothStatus"
+                android:scaleX="1.7"
+                android:scaleY="1.7"
+                android:textStyle="bold"
+                android:layout_gravity="left" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
+                android:text="RX:"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.9"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="&lt;Read Buffer>"
+                android:id="@+id/readBuffer"
+                android:layout_centerHorizontal="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
+                android:text="Status:"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.9"
+
+                android:text="&lt;Bluetooth Status>"
+                android:id="@+id/bluetoothStatus"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:layout_centerHorizontal="true"
+                android:layout_alignTop="@+id/checkboxLED1" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="藍芽 ON"
+            android:id="@+id/BTscan"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/BToff" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="藍芽 OFF"
+            android:id="@+id/BToff"
+            android:layout_alignBottom="@+id/BTscan"
+            android:layout_toEndOf="@+id/BTpaired"
+            android:layout_toRightOf="@+id/BTpaired" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="顯示已配對的裝置"
+            android:id="@+id/BTpaired"
+            android:layout_below="@+id/BTscan"
+            android:layout_toStartOf="@+id/BTdiscover" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="搜尋新的裝置"
+            android:id="@+id/BTdiscover"
+            android:layout_below="@+id/BToff"
+            android:layout_toRightOf="@+id/checkboxLED1"
+            android:layout_toEndOf="@+id/checkboxLED1" />
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/devicesListView"
+            android:choiceMode="singleChoice"
+            android:layout_below="@+id/BTpaired"
+            android:layout_alignRight="@+id/BToff"
+            android:layout_alignEnd="@+id/BToff" />
+
+    </LinearLayout>
+
+</RelativeLayout>
